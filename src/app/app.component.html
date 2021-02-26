@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Bootstrap & AngularJS-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      media="screen"
+    />
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+
+    <link rel="stylesheet" href="resources/css/script.js" />
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" href="resources/css/magnific-popup.css" />
+    <link rel="stylesheet" href="resources/css/jquery.magnific-popup.js" />
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendors/css/ionicons.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="vendors/css/animate.css" />
+
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+    <link rel="stylesheet" href="./resources/css/query1.css" />
+
+    <!--Favicons-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="resources/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="resources/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="resources/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="resources/favicons/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="resources/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,400i"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script>
+      $(document).ready(function() {
+        console.log("document is ready");
+
+        $(".js--hero-text-box").waypoints(function(direction) {
+          if ((direction = "down")) {
+            $("nav").addClass("sticky_hr");
+          } else {
+            $("nav").removeClass("sticky_hr");
+          }
+        });
+        //Set the carousel options
+        $("#myCarousel").carousel({ pause: true, interval: 4000 });
+      });
+      $('[data-toggle="tooltip"]').tooltip();
+    </script>
+    <title>Targus</title>
+  </head>
+
+  <body ng-app="RoutingApp" ng-controller="TestCtrl">
+    <div class="page">
+      <header>
+        <nav>
+          <div class="row nav_wrapper">
+            <img src="resources/img/BookH.jpg" alt="Book logo" class="logo" />
+            <ul class="main-nav">
+              <strong>
+                <li>
+                  <a href="" ng-click="click1()"
+                    ><i class="glyphicon glyphicon-home"></i
+                    >&nbsp;&nbsp;&nbsp;Home</a
+                  >
+                </li>
+                <li>
+                  <a href="" ng-click="click2()"
+                    ><i class="glyphicon glyphicon-book"></i
+                    >&nbsp;&nbsp;&nbsp;Shop Books</a
+                  >
+                </li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Book Collection</a></li>
+                <li>
+                  <a
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#Modal7"
+                    data-keyboard="false"
+                    data-backdrop="static"
+                    data-whatever="@mdo"
+                    >Sign up</a
+                  >
+                </li></strong
+              >
+            </ul>
+            <div ng-view></div>
+          </div>
+        </nav>
+
+        <div
+          class="modal fade"
+          id="Modal7"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign in :</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="http://127.0.0.1:8080/booksbr.html" method="POST">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="recipient-name"
+                        placeholder="Login"
+                      />
+                      <label
+                        for="recipient-name"
+                        class="input-group-addon glyphicon glyphicon-user"
+                      ></label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="recipient-pwd"
+                        placeholder="Password"
+                      />
+                      <label
+                        for="recipient-pwd"
+                        class="input-group-addon glyphicon glyphicon-lock"
+                      ></label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Create Account
+                </button>
+                <button type="button" class="btn btn-primary">Login</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <br /><br />
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for arts -->
+        <div class="container">
+          <div class="modal fade" id="Modal_ae" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <h4 class="modal-title">
+                  <br />&nbsp;&nbsp;Arts & Entertainment
+                </h4>
+                <br />
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="offset-md-2 col-md-10">
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780143109259.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid;MAX-HEIGHT:160px; MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal1"
+                          /><br /><br />
+                          <h5>
+                            <strong>Modern Romance</strong><br />
+                            <h6>Aziz Ansari and Eric Klinenberg</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780307886279.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal2"
+                          /><br /><br />
+                          <h5>
+                            <strong>Is Everyone Hanging Out Without me?</strong
+                            ><br />
+                            <h6>Mindy Kaling</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780316154727.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal3"
+                          /><br /><br />
+                          <h5>
+                            <strong>Theft by Finding: Diaries 1977-2002</strong
+                            ><br />
+                            <h6>David Sedaris</h6>
+                          </h5></a
+                        >
+                      </div>
+                      <br /><br />
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781101912195.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal4"
+                          /><br /><br />
+                          <h5>
+                            <strong>We Are Never Meeting in Real life</strong
+                            ><br />
+                            <h6>Samantha Irby</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781250118035.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal5"
+                          /><br /><br />
+                          <h5>
+                            <strong
+                              >The Lonely City: Adventures in the Art of Being
+                              Alone?</strong
+                            ><br />
+                            <h6>Olivia Laing</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781338099133.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal6"
+                          /><br /><br />
+                          <h5>
+                            <strong>Harry Potter and the Cursed Child</strong
+                            ><br />
+                            <h6>J K Rowling</h6>
+                          </h5></a
+                        >
+                      </div>
+                      <!-- elements not showing, use data-remote -->
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781455516902.jpg"
+                        data-title="Hidden item 1"
+                      ></div>
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781455540419.jpg"
+                        data-title="Hidden item 2"
+                      ></div>
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781501117206.jpg"
+                        data-title="Hidden item 3"
+                      ></div>
+                    </div>
+                    <!--offset-->
+                  </div>
+                </div>
+                <a href="#" data-dismiss="modal">&nbsp;&nbsp;Dismiss</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for Biography -->
+        <div class="container">
+          <div class="modal fade" id="Modal_bi" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <h4 class="modal-title"><br />&nbsp;&nbsp;Biography</h4>
+                <br />
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="offset-md-2 col-md-10">
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781451648539.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal1"
+                          /><br /><br />
+                          <h5>
+                            <strong>Steve Jobs</strong><br />
+                            <h6>Walter Isaacson</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780062218292.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal3"
+                          /><br /><br />
+                          <h5>
+                            <strong
+                              >Astoria John Jacob Astors Great Expedition A
+                              Story of Wealth Ambition & Survival</strong
+                            ><br />
+                            <h6>Peter Stark</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781101875100.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid;MAX-HEIGHT:160px; MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal2"
+                          /><br /><br />
+                          <h5>
+                            <strong>M Train</strong><br />
+                            <h6>Patti Smith</h6>
+                          </h5></a
+                        >
+                      </div>
+                      <br /><br />
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780385349949.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal4"
+                          /><br /><br />
+                          <h5>
+                            <strong
+                              >Lean in: Women, Work, and the Will to
+                              Lead</strong
+                            ><br />
+                            <h6>Sandberg, Sheryl</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781476793856.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal5"
+                          /><br /><br />
+                          <h5>
+                            <strong>A Life in Parts</strong><br />
+                            <h6>Bryan Cranston</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781400064168.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid;MAX-HEIGHT:160px; MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal6"
+                          /><br /><br />
+                          <h5>
+                            <strong
+                              >Unbroken A World War II Story of Survival
+                              Resilience & Redemption</strong
+                            ><br />
+                            <h6>Laura Hillenbrand</h6>
+                          </h5></a
+                        >
+                      </div>
+                      <!-- elements not showing, use data-remote -->
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781455516902.jpg"
+                        data-title="Hidden item 1"
+                      ></div>
+                    </div>
+                    <!--offset-->
+                  </div>
+                </div>
+                <a href="#" data-dismiss="modal">&nbsp;&nbsp;Dismiss</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for childrens -->
+        <div class="container">
+          <div class="modal fade" id="Modal_ch" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <h4 class="modal-title"><br />&nbsp;&nbsp;Children's</h4>
+                <br />
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="offset-md-2 col-md-10">
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780062024701.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal1"
+                          /><br /><br />
+                          <h5>
+                            <strong>Wildwood</strong><br />
+                            <h6>Colin Meloy</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780143125471.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal2"
+                          /><br /><br />
+                          <h5>
+                            <strong
+                              >The Boys in the Boat: Nine Americans and Their
+                              Epic Quest for Gold at the 1936 Berlin
+                              Olympics</strong
+                            ><br />
+                            <h6>Daniel James Brown</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780545540629.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal3"
+                          /><br /><br />
+                          <h5>
+                            <strong>Ghosts</strong><br />
+                            <h6>Raina Telgemeier</h6>
+                          </h5></a
+                        >
+                      </div>
+                      <br /><br />
+                      <div class="row browse-list">
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780316334754.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid;MAX-HEIGHT:160px; MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal4"
+                          /><br /><br />
+                          <h5>
+                            <strong>The Girl With All the Gifts</strong><br />
+                            <h6>M.R. Carey</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9781570616792.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal5"
+                          /><br /><br />
+                          <h5>
+                            <strong>Larry Gets Lost in Portland</strong><br />
+                            <h6>John Skewes</h6>
+                          </h5></a
+                        >
+
+                        <a
+                          href="#"
+                          data-toggle="lightbox"
+                          data-gallery="example-gallery"
+                          class="col-sm-4"
+                        >
+                          <img
+                            src="resources/img/9780545433167.jpg"
+                            class="img-fluid"
+                            style="border: #000 1px solid; MAX-HEIGHT:160px;MAX-WIDTH: 122px; -MS-INTERPOLATION-MODE: bicubic;"
+                            class="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#Modal6"
+                          /><br /><br />
+                          <h5>
+                            <strong>Firelight (Amulet #7)</strong><br />
+                            <h6>Kazu Kibuishi</h6>
+                          </h5></a
+                        >
+                        <!--<h6>Classroom Resources, Exams, Teaching, Workbooks...</h6>-->
+                      </div>
+                      <!-- elements not showing, use data-remote -->
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781419713101.jpg"
+                        data-title="Hidden item 1"
+                      ></div>
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9781938093807.jpg"
+                        data-title="Hidden item 2"
+                      ></div>
+                      <div
+                        data-toggle="lightbox"
+                        data-gallery="hidden-images"
+                        data-remote="resources/img/9780375842207.jpg"
+                        data-title="Hidden item 3"
+                      ></div>
+                    </div>
+                    <!--offset-->
+                  </div>
+                </div>
+                <a href="#" data-dismiss="modal">&nbsp;&nbsp;Dismiss</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="hero-text-box js--hero-text-box">
+        <br />&nbsp;&nbsp;&nbsp;
+        <h2>
+          &nbsp;&nbsp;&nbsp;Relax and enjoy the various subjects and browse
+          through a diverse inventory of used books from different Authors.We
+          have a healthy crop of new releases have satisfied readers’ appetite
+          for everything from escapist page-turners to socially engaged fiction
+          to candid nonfiction. We asked our staff to weigh in on their own
+          favorite new books of 2017 so far. Here are their picks...
+        </h2>
+        <section class="book-thumb home-page-browse-grid">
+          <div class="row">
+            <div class="offset-md-2 col-md-10">
+              <div class="row bcenter" style="display: inline-block;">
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_ae"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/arts.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Arts and Entertainment</a
+                >
+
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_bi"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/biography.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Biography</a
+                >
+
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_ch"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/child3.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Children's</a
+                >
+              </div>
+              <br /><br />
+              <div class="row bcenter" style="display: inline-block;">
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_fp"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/fict5.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Fiction and Poetry</a
+                >
+
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_hg"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/garden1.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Home and Garden</a
+                >
+
+                <a
+                  data-toggle="modal"
+                  href=""
+                  data-target="#Modal_ed"
+                  data-keyboard="false"
+                  data-backdrop="static"
+                  data-gallery="example-gallery"
+                  class="col-sm-4"
+                >
+                  <img
+                    src="resources/img/edu1.jpg"
+                    class="img-fluid"
+                    width="165px"
+                    height="180px"
+                    style="border: #555 3px solid;-MS-INTERPOLATION-MODE: bicubic;"
+                    class="btn btn-info btn-lg"
+                  /><br />Education</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <br /><br />
+        <div class="book-sb" style="margin : 135 px;">
+          <a
+            class="btn btn-full"
+            target="_blank"
+            href="booksbr.html"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Search"
+            ><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;Browse</a
+          >
+          <a
+            class="btn btn-full"
+            href="buy.html"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Buy"
+            ><span class="glyphicon glyphicon-shopping-cart"></span
+            >&nbsp;&nbsp;Buy</a
+          >
+          <a
+            class="btn btn-ghost"
+            href="sell.html"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Sell"
+            >Sell
+          </a>
+        </div>
+      </div>
+      <!--hero-box-->
+    </div>
+
+    <!--page-->
+
+    <!--Testimonials-->
+    <section class="section-testimonials">
+      <div class="row">
+        <h2>Our Customers love our Books!!!!!</h2>
+      </div>
+      <div class="row">
+        <div class="book-nav">
+          <div class="col span-1-of-3">
+            <ul>
+              <li>
+                <blockquote>
+                  <h4><i>The World according to Humphrey!</i></h4>
+                  <br />
+                  <p>
+                    "Humphrey is wry-humored and big-hearted.This read is simply
+                    good-good-good!"
+                  </p>
+                  <br />
+                  <cite
+                    ><img src="resources/img/birney.jpg" />
+                    <h5>Betty G.Birney</h5></cite
+                  >
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+          <div class="col span-1-of-3">
+            <ul>
+              <li>
+                <blockquote>
+                  <h4><i>Winter according to Humphrey</i></h4>
+                  <br />
+                  <p>
+                    This book is all about the different ways in Room 26 for
+                    Winter Wonderland Program.Do-It-Now-Daniel is having trouble
+                    practicing and humphrey still has to find a gift for Og.
+                  </p>
+                  <br />
+                  <cite
+                    ><img src="resources/img/birney2.jpg" />
+                    <h5>Betty G.Birney</h5></cite
+                  >
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+          <div class="col span-1-of-3">
+            <ul>
+              <li>
+                <blockquote>
+                  <h4><i>School days according to Humphrey</i></h4>
+                  <br />
+                  <p>Humphrey is looking for his old friends from last year.</p>
+                  <br />
+                  <cite
+                    ><img src="resources/img/birney1.jpg" />
+                    <h5>Betty G.Birney</h5></cite
+                  >
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel -->
+    <div class="container-fluid">
+      <!--<h2>heading</h2>-->
+      <div
+        id="myCarousel"
+        class="carousel slide carousel-fade"
+        data-ride="carousel"
+      >
+        <!-- Bottom carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <blockquote>
+              <img
+                class="img-circle"
+                src="resources/img/birney1.jpg"
+                alt="Birney1"
+                style="width:190px;height:190px;"
+              /><br />
+
+              <h4>
+                <strong><i>The World according to Humphrey!</i></strong>
+              </h4>
+              <br />
+              <p>
+                Humphrey is wry-humored and big-hearted.This read is simply
+                good-good-good!
+              </p>
+              <br />
+            </blockquote>
+          </div>
+
+          <div class="item">
+            <blockquote>
+              <img
+                class="img-circle"
+                src="resources/img/birney1.jpg"
+                alt="Birney1"
+                style="width:190px;height:190px;"
+              /><br />
+
+              <h4>
+                <strong><i>Winter according to Humphrey</i></strong>
+              </h4>
+              <br />
+              <p>
+                This book is all about the different ways in Room 26 for Winter
+                Wonderland Program.Do-It-Now-Daniel is having trouble practicing
+                and humphrey still has to find a gift for Og.
+              </p>
+              <br />
+            </blockquote>
+          </div>
+
+          <div class="item">
+            <blockquote>
+              <img
+                class="img-circle"
+                src="resources/img/birney2.jpg"
+                alt="Birney2"
+                style="width:190px;height:190px;"
+              /><br />
+
+              <h4>
+                <strong><i>The World according to Humphrey!</i></strong>
+              </h4>
+              <br />
+              <p>
+                "Humphrey is wry-humored and big-hearted.This read is simply
+                good-good-good!"
+              </p>
+              <br />
+            </blockquote>
+          </div>
+
+          <div class="item">
+            <blockquote>
+              <img
+                class="img-circle"
+                src="resources/img/birney1.jpg"
+                alt="Birney1"
+                style="width:190px;height:190px;"
+              /><br />
+              <h4>
+                <strong><i>School days according to Humphrey</i></strong>
+              </h4>
+              <br />
+              <p>
+                Humphrey is looking for his old friends from last year.He missed
+                his old pets froma different class and was having trouble
+                adjusting with his new friends in Room28.
+              </p>
+              <br />
+            </blockquote>
+          </div>
+
+          <div class="item">
+            <blockquote>
+              <img
+                class="img-circle"
+                src="resources/img/birney2.jpg"
+                alt="Birney2"
+                style="width:190px;height:190px;"
+              /><br />
+              <h4>
+                <strong><i>Winter according to Humphrey</i></strong>
+              </h4>
+              <br />
+              <p>
+                This book is all about the different ways in Room 26 for Winter
+                Wonderland Program.Do-It-Now-Daniel is having trouble practicing
+                and humphrey still has to find a gift for Og.
+              </p>
+              <br />
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Add Footer here-->
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">iOS App</a></li>
+            <li><a href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li>
+              <a
+                href="http://www.facebook.com"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Facebook"
+                ><i class="ion-social-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Twitter"
+                ><i class="ion-social-twitter"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="GooglePlus"
+                ><i class="ion-social-googleplus"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/accounts/login/"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="Instagram"
+                ><i class="ion-social-instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <p>Copyright &copy; 2017 by Targus. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="Vendors/js/jquery.waypoints.min.js"></script>
+  </body>
+</html>
